@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" id="elzero-app">
+      <ul class="tabs">
+        <li @click="activetab='1'" :class="[activetab==='1'? 'active':'']">
+          tab one
+        </li>
+        <li @click="activetab='2'" :class="[activetab==='2'? 'active':'']">
+          tab two
+        </li>
+        <li @click="activetab='3'" :class="[activetab==='3'? 'active':'']">
+          tab three
+        </li>
+        <li @click="activetab='4'" :class="[activetab==='4'? 'active':'']">
+          tab four
+        </li>
+      </ul>
+      <div class="tabs-content">
+        <div class="content-one" v-if="activetab==='1'">content one</div>
+        <div class="content-two" v-if="activetab==='2'">content two</div>
+        <div class="content-three" v-if="activetab==='3'">content three</div>
+        <div class="content-four" v-if="activetab==='4'">content four</div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#elzero-app",
+        data: {
+          activetab: "1",
+        },
+      });
+    </script>
+  </body>
+</html>
+<style>
+  body {
+    font-family: "open Sans";
+    font-size: 19px;
+  }
+  .container {
+    margin: 20px auto;
+    width: 1200px;
+  }
+
+  .container .tabs {
+    margin-bottom: 0;
+  }
+  .container .tabs li {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eee;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  .container .tabs li.active {
+    opacity: 1;
+  }
+  .container .tabs-content {
+    background-color: #eee;
+    margin: 0 auto;
+    padding: 20px;
+  }
+</style>
